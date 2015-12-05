@@ -12,7 +12,7 @@ matrix:
       addons:
         apt:
           packages: ['clang-3.8', 'ninja-build']
-          sources: ubuntu-toolchain-r-test
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-precise']
 
 before_install:
   - export PATH="$HOME/bin:$PATH"
