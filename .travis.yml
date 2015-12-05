@@ -3,12 +3,12 @@ language: generic
 
 matrix:
   include:
-    - env: CC=gcc-5 CXX=g++-5
+    - env: CC=gcc-5
       addons:
         apt:
           packages: ['g++-5', 'ninja-build']
           sources: ubuntu-toolchain-r-test
-    - env: CC=clang-3.8 CXX=clang++-5
+    - env: CC=clang-3.8
       addons:
         apt:
           packages: ['clang-3.8', 'ninja-build']
