@@ -19,7 +19,7 @@ before_install:
   - mkdir ~/bin
   - mkdir ~/tools
   - wget --no-check-certificate --no-clobber -O /tmp/tools/cmake https://cmake.org/files/v3.4/cmake-3.4.0-rc3-Linux-x86_64.sh || true
-  - chmod -R +x /tools
+  - chmod -R +x ~/tools
 
 install:
   - /tmp/tools/cmake --prefix="$HOME" --exclude-subdir
