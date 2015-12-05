@@ -3,7 +3,7 @@ project (tdpi)
 
 if("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
     if (CMAKE_CC_COMPILER_VERSION VERSION_LESS 5.0)
-        message(FATAL_ERROR "GCC version must be at least 5.0!")
+        message(WARNING "GCC version must be at least 5.0!")
         message(CMAKE_CC_COMPILER_VERSION)
     endif()
 elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
