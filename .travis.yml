@@ -6,13 +6,22 @@ matrix:
     - env: CC=gcc-5
       addons:
         apt:
-          packages: ['g++-5', 'cmake', 'ninja-build']
-          sources: ['ubuntu-toolchain-r-test', 'kalakris-cmake']
+          packages: ['g++-5', 'ninja-build']
+          sources: ubuntu-toolchain-r-test
     - env: CC=clang-3.8
       addons:
         apt:
-          packages: ['clang-3.8', 'cmake', 'ninja-build']
-          sources: ['ubuntu-toolchain-r-test', 'kalakris-cmake']
+          packages: ['clang-3.8', 'ninja-build']
+          sources: ubuntu-toolchain-r-test
+
+before_install:
+  - export PATH="$HOME/bin:$PATH"
+  - mkdir ~/bin
+  - wget --no-check-certificate --no-clobber -O /tmp/tools/cmake https://cmake.org/files/v3.4/cmake-3.4.0-rc3-Linux-x86_64.sh || true
+  - chmod -R +x /tmp/tools
+
+install:
+  - /tmp/tools/cmake --prefix="$HOME" --exclude-subdir
 
 before_script:
   - mkdir build
