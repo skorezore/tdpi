@@ -11,17 +11,21 @@ matrix:
     - env: CC=gcc-5
       addons:
         apt:
-          packages: ['g++-5', 'ninja-build']
-          sources: ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+          sources:
+            - ubuntu-toolchain-r-test
     - env: CC=clang-3.8
       addons:
         apt:
-          packages: ['clang-3.8', 'ninja-build']
-          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-precise']
+          packages:
+            - clang-3.8
+          sources:
+            - llvm-toolchain-precise
 
 before_install:
   - export PATH="$HOME/bin:$PATH"
-  - mkdir ~/bin
+  - mkdir -p ~/bin /tmp/tools
   - wget --no-check-certificate --no-clobber -O /tpm/tools/cmake https://cmake.org/files/v3.4/cmake-3.4.0-rc3-Linux-x86_64.sh || true
   - chmod -R +x /tpm/tools
 
@@ -33,5 +37,5 @@ before_script:
   - cd build
 
 script:
-  - cmake -G"Ninja" ..
+  - cmake -G"Unix Makefiles" ..
   - ninja
