@@ -26,7 +26,7 @@ before_install:
   - chmod -R +x /tmp/tools
 
 install:
-  - tools/cmake --prefix="$HOME" --exclude-subdir
+  - /tmp/tools/cmake --prefix="$HOME" --exclude-subdir
 
 before_script:
   - mkdir build
