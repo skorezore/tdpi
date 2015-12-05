@@ -1,0 +1,23 @@
+sudo: false
+language: c
+
+matrix:
+  include:
+    - env: CC=gcc-5
+      addons:
+        apt:
+          packages: ['g++-5', 'cmake', 'ninja-build']
+          sources: ['ubuntu-toolchain-r-test', 'kalakris-cmake']
+    - env: CC=clang-3.8
+      addons:
+        apt:
+          packages: ['clang-3.8', 'cmake', 'ninja-build']
+          sources: ['ubuntu-toolchain-r-test', 'kalakris-cmake']
+
+before_script:
+  - mkdir build
+  - cd build
+
+script:
+  - cmake -G"Ninja" ..
+  - ninja
